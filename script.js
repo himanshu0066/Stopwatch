@@ -2,6 +2,25 @@ const start = document.querySelector('.start');
 const stop = document.querySelector('.stop');
 const reset = document.querySelector('.reset');
 const time = document.querySelector('.time');
+const colors = document.querySelectorAll('.color-option');
+const bgcolor = document.querySelector('.bg-color');
+const button = document.querySelectorAll(".btn");
+
+//Updating background color to "color"
+function UpdateBackground(color) {
+    document.body.style.background = color;
+    for (i = 0; i < button.length; i++)
+        button[i].style.background = color;
+}
+
+//To change the background color
+bgcolor.addEventListener('click', e => {
+    for (i = 0; i < colors.length; i++) {
+        if (e.target.classList.contains('color-option'))
+            UpdateBackground(e.target.style.background);
+    }
+})
+
 
 let startTime = new Date();
 let LastTime = 0, state = "reset";
